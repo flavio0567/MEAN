@@ -1,0 +1,37 @@
+<h1>Welcome, {{ user }}</h1>
+<p class="right"><a [routerLink]="['/reset']">logout</a></p>
+
+<form (submit)="newTask()">
+  <label>Title</label> 
+  <input 
+    type="text" 
+    name="title" 
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="task.title"
+    #title='ngModel'
+  />
+  <label>Description</label> 
+  <input 
+    type="text" 
+    name="description" 
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="task.description"
+    #description='ngModel'
+  />
+  <label>Task Completed?</label> 
+  <input 
+    type="text" 
+    name="completed" 
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="task.completed"
+    #completed='ngModel'
+  />
+  <input type="submit">
+</form>
+

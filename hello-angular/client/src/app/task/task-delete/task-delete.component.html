@@ -1,0 +1,17 @@
+<h1>{{ user }}</h1>
+<p class="right"><a [routerLink]="['/reset']">logout</a></p>
+
+<hr>
+
+<h2>Task</h2>
+
+<form (submit)="deleteTask()">
+  <p>Title: </p>{{ task['title'] }}
+  <p>Description: </p>{{ task['description'] }}
+  <p>Completed: </p>{{ task['completed'] }}
+
+  <hr>
+
+  <input type="submit" value="Confirm?">
+</form>
+

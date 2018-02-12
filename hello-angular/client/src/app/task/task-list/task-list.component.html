@@ -1,0 +1,29 @@
+<h1>Welcome, {{ user }}</h1>
+<p class="right"><a [routerLink]="['/reset']">logout</a></p>
+
+<hr>
+
+<h2>Task</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+          <td><a [routerLink]="['/tasks', task['_id'] ]">{{ task['title'] }} </a></td>
+          <td>{{ task['description'] }}</td>
+          <td>{{ task['completed'] }}</td>  
+    </tr>
+    <br>
+
+  </tbody>
+</table> 
+
+<form (submit)="newTask()">
+    <button class="right" class="btn btn-primary btn-sm"  type="submit" >New Task</button>
+</form>
+

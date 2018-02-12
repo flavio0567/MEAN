@@ -1,0 +1,15 @@
+<h1>{{ user }}</h1>
+<p class="right"><a [routerLink]="['/reset']">logout</a></p>
+
+<hr>
+
+<h2>Task</h2>
+ 
+<p>Title: </p>{{ task['title'] }}
+<p>Description: </p>{{ task['description'] }}
+<p>Completed: </p>{{ task['completed'] }}
+
+<hr>
+
+<a [routerLink]="['/tasks/update', task['_id'] ]">Update Task</a>
+<a [routerLink]="['/tasks/delete', task['_id'] ]">Delete Task</a>

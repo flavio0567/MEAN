@@ -1,0 +1,10 @@
+<h3 mat-dialog-title>Hi {{data.user}} </h3>
+<br><br>
+<div mat-dialog-content>
+  <p>Are you sure you want to remove {{data.name}}?</p>
+</div>
+<br><br>
+<div mat-dialog-actions>
+  <button class="btn btn-danger btn-sm" mat-button (click)="onNoClick()"> No Thanks </button><br><br>
+  <button class="btn btn-danger btn-sm" mat-button (click)="deletePlayer(data.id)" cdkFocusInitial> Ok </button>
+</div>

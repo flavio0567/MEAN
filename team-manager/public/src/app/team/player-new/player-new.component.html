@@ -1,0 +1,39 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" [routerLink]="['/players/list']">List</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/status/game/1']">Manage Player Status</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Logout</button>
+</div>
+<br><br>
+<form (submit)="addPlayer()" #formData="ngForm">
+  <div class="form-group row box0"> 
+
+    <div class="col-sm-12" >
+        <label class="col-form-label">Name:</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        name="name" 
+        required
+        minlength=2
+        [(ngModel)]="newPlayer.name"
+        #name="ngModel"
+        />
+       <div *ngIf="!name.valid" class="red">*Name {{ newPlayer.name }} must be at least 2 characters in length!</div>
+    </div>
+
+    <div class="col-sm-12">
+        <label class="col-form-label">Preferred Position:</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          name="newPlayer.position" 
+          [(ngModel)]="newPlayer.position" />
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="formData.invalid">Add</button>
+    <br>
+
+  </div>
+ 
+</form>
+

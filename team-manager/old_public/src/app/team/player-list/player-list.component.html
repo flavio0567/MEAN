@@ -1,0 +1,30 @@
+<!-- <h1>Welcome, {{ recipie.user }}</h1> -->
+<p class="right"><a [routerLink]="['/players/addplayer']">Manage Players</a></p>
+<p class="right"><a [routerLink]="['/status/game/1']">Manage Player Status</a></p>
+<hr>
+  <div class='box'>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Team Name</th>
+        <th scope="col">Preferred Position</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of team">
+            <td>{{ player['name'] }}</td>
+            <td>{{ player['position'] }}</td>
+            <td><button (click)="deletePlayer(player['_id'])" class="btn btn-primary btn-sm">DELETE</button></td>   
+      </tr>
+      <br>
+
+    </tbody>
+  </table> 
+</div>
+<!-- <form (submit)="deletePlayer()">
+    <button class="right" class="btn btn-primary btn-sm"  type="submit" >New Recipie</button>
+</form> -->
+
+
+

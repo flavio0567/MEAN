@@ -1,0 +1,25 @@
+<form (submit)="onSubmit()" #formData="ngForm">
+  <div class="form-group row box0"> 
+    <label class="col-form-label">Name:</label>
+    <div class="col-sm-12">
+        <input 
+        type="text" 
+        class="form-control" 
+        name="player.name" 
+        required
+        [(ngModel)]="name"
+        >
+    </div>
+    <label class="col-form-label">Preferred Position:</label>
+    <div class="col-sm-12">
+          <input 
+          type="text" 
+          class="form-control" 
+          name="player.position" 
+          [(ngModel)]="position"
+          >
+    </div>
+      <button class="btn btn-primary btn-sm" type="submit">Add</button>
+  </div>
+
+</form>

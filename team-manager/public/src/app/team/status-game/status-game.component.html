@@ -1,0 +1,49 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" [routerLink]="['/players/list']">List</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/players/addplayer']">Add Players</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Logout</button>
+</div>
+<br><br>
+<div id="scroll">
+  <h2>   Player Status - Game {{ this.game }}</h2> 
+
+  <button type="button" (click)="game = 1" class="btn btn-outline-info">Game 1   </button> <button type="button" (click)="game = 2" class="btn btn-outline-info"> Game 2 </button> <button type="button" (click)="game = 3" class="btn btn-outline-info"> Game 3</button>
+  <br><br>
+<div class='box'>
+  <table class="table table-hover" align="left">
+    <thead>
+      <tr class="table-primary d-flex">
+        <th class="col-6" >Team Name</th>
+        <th class="col-6" >Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of team" class="d-flex">
+
+        <td class="col-6" *ngIf="player['game'][game]">{{ player['name'] }}</td>
+
+        <td *ngIf="player['game'][game]" >
+          <div *ngIf= "!player['game'][game]['action']['playing']; then falseBlock else trueBlock"> </div>
+          <ng-template #trueBlock><button  [ngClass]="{ 'green': true }"  (click) = "switchPlaying(player)">Playing</button></ng-template>
+          <ng-template #falseBlock><button [ngClass]="{ 'green': false }" (click) = "switchPlaying(player)">Playing</button></ng-template>
+        </td>
+          
+        <td *ngIf="player['game'][game]">
+          <div *ngIf= "!player['game'][game]['action']['notplaying']; then falseBlock else trueBlock"> </div>
+          <ng-template #trueBlock><button  [ngClass]="{ 'red': true }"  (click) = "switchNotPlaying(player)">Notplaying</button></ng-template>
+          <ng-template #falseBlock><button [ngClass]="{ 'red': false }" (click) = "switchNotPlaying(player)">Notplaying</button></ng-template>
+        </td>
+
+        <td *ngIf="player['game'][game]">
+          <div *ngIf= "!player['game'][game]['action']['undefined']; then falseBlock else trueBlock"> </div>
+          <ng-template #trueBlock><button  [ngClass]="{ 'yellow': true }"  (click) = "switchUndefined(player)">Undefined</button></ng-template>
+          <ng-template #falseBlock><button [ngClass]="{ 'yellow': false }" (click) = "switchUndefined(player)">Undefined</button></ng-template>
+        </td>
+
+      </tr>
+
+
+    </tbody>
+  </table> 
+
+</div>
